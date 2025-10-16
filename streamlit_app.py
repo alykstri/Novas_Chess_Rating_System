@@ -18,3 +18,4 @@ if st.checkbox('Show dataframe'):
        columns=['a', 'b', 'c'])
 
     chart_data
+st.line_chart(chart_data)
