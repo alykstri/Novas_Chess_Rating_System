@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import time
 
 df = pd.DataFrame({
     'first column': [1, 2, 3, 4],
@@ -25,3 +26,18 @@ add_slider = st.sidebar.slider(
     'Select a range of values',
     0.0, 100.0, (25.0, 75.0)
 )
+
+## Progress Bar
+'Starting a long computation...'
+
+# Add a placeholder
+latest_iteration = st.empty()
+bar = st.progress(0)
+
+for i in range(100):
+  # Update the progress bar with each iteration.
+  latest_iteration.text(f'Iteration {i+1}')
+  bar.progress(i + 1)
+  time.sleep(0.1)
+
+'...and now we\'re done!'
